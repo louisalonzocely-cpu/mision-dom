@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobilStore - Tu Tienda de Smartphones y Tecnología</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="cabecera">
+        <div class="left">
+            <img class="logo" src="logo.jpeg" alt="logo del celular">
+            <div class="contenido">
+                <h1 id="titulo"></h1>
+                <p id="subtitulo"></p>
+            </div>
+        </div>
+        <div class="right">
+            <nav class="menu">
+                <a href="#inicio" class="enlace">Inicio</a>
+                <a href="#coleccion" class="enlace">Catálogo</a>
+                <a href="#contacto" class="enlace">Contacto</a>
+            </nav>
+            <button id="btnTema" class="boton-tema">Modo oscuro</button>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="inicio" class="bloqueUno">
+            
+            <div class="bloque-inicio">
+                <p id="parrafoInicio" class="parrafo__inicio">
+                    Bienvenidos a MobilStore, tu tienda virtual especializada
+                    en la venta de teléfonos celulares y accesorios tecnológicos.
+                    Nos enfocamos en ofrecer productos de calidad, precios competitivos
+                    y una experiencia de compra segura, fácil y confiable.
+                    En Mobil Store encontrarás dispositivos modernos que se adaptan a tus necesidades,
+                    ya sea para el trabajo, el estudio, el entretenimiento o la comunicación.
+                    Nuestro compromiso es brindarte una atención personalizada,
+                    innovación y soluciones tecnológicas que te permitan estar siempre conectado.
+                    ¡MobilStore, conecta con lo que necesitas!
+                </p>
+            </div>
+
+            <div class="columna-botones">
+                <div id="caja" class="caja">
+                    <p>Zona de ofertas e interacción</p>
+                    <img src="promocion.png" alt="Promociones de la semana" class="img-promocion" id="promocion">
+                </div>
+
+                <div class="panel-botones">
+                    <button id="btnColor" class="btn__Color">Cambiar color</button>
+                    <button id="btnDestacar" class="btn__Destacar">Destacar</button>
+                    <button id="btnOcultar" class="btn__ocultar"></button>
+                </div>
+                <a href="#" id="enlaceExterno" class="enlace__externo"></a>
+            </div>
+
+        </section>
+
+        <section id="coleccion" class="bloque">
+            <h2>Nuestros Dispositivos Destacados</h2>
+
+            <p id="contador" class="contador"></p>
+
+            <ul class="lista" id="lista">
+                <li><img src="s24Ultra.webp" alt="Samsung Galaxy S24 Ultra" class="img-iphone">Samsung Galaxy S24 Ultra</li>
+                <li><img src="Iphone18.webp" alt="iPhone 18 Pro Max" class="img-iphone">iPhone 18 Pro Max</li>
+                <li><img src="redmi13pro.webp" alt="Xiaomi Redmi Note 13 Pro" class="img-iphone">Xiaomi Redmi Note 13 Pro</li>
+                <li><img src="motoEdge70.webp" alt="Moto Edge 70" class="img-iphone">Motorola Edge 70 Pro</li>
+            </ul>
+
+            <div class="control-lista">
+                <input type="text" id="campoProyecto" placeholder="Ej: iPad Air M2">
+                <button id="btnAgregar">Agregar Producto</button>
+                <button id="btnQuitar">Quitar el último</button>
+                <button id="btnVaciar">Vaciar Catálogo</button>
+            </div>
+
+            <h3>Lista de Precios y Equipos</h3>
+            <p id="contadorDos" class="contador"></p>
+            <table id="tabla" class="tabla-productos">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Gama</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>iPhone 18 Pro +</td>
+                        <td>Alta</td>
+                        <td>$ 6.000.000</td>
+                        <td>Disponible</td>
+                    </tr>
+                    <tr>
+                        <td>Samsung A55</td>
+                        <td>Media</td>
+                        <td>$ 1.400.000</td>
+                        <td>Disponible</td>
+                    </tr>
+                    <tr>
+                        <td>Motorola Edge 50</td>
+                        <td>Media-Alta</td>
+                        <td>$ 2.300.000</td>
+                        <td>Agotado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+   
+        <section id="contacto" class="bloque">
+            <h2>Contáctanos / Solicita Asesoría</h2>
+            <form id="formulario" class="formulario">
+                <div class="campo-grupo">
+                    <label for="campoNombre">Nombre completo:</label>
+                    <input type="text" id="campoNombre" name="campoNombre">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="campoMensaje">Mensaje o dispositivo de interés:</label>
+                    <textarea id="campoMensaje" name="campoMensaje" rows="4"></textarea>
+                    <p id="contadorLetras" class="contador-letras"></p>
+                </div>
+
+                <button type="submit" id="btnEnviar">Enviar Solicitud</button>
+                <p id="avisoForm" class="aviso"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <p>MobilStore — Ficha 3230489 — <span id="anio"></span></p>
+        <p>Integrantes: Juan Sebastian Cardona, Luis Alonso Cely</p>
+    </footer>
+</body>
+
+</html>

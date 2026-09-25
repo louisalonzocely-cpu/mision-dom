@@ -1,0 +1,475 @@
+/* ===========================================================
+ 1. VARIABLES
+ =========================================================== */
+:root {
+    --papel: #f5f7fa;
+    --tarjeta: #eeeeee;
+    --tinta: #1f2937;
+    --suave: #6b7280;
+    --borde: #d1d5db;
+    --primario: #2563eb;
+    --secundario: #4b5563;
+    --peligro: #dc2626;
+    --exito: #059669;
+    --alerta: #f59e0b;
+    --fondo-caja: #e0e7ff;
+}
+
+/* ===========================================================
+ 2. BASE
+ =========================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--papel);
+    color: var(--tinta);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===========================================================
+ 3. CABECERA
+ =========================================================== */
+.cabecera {
+    background-color: var(--tarjeta);
+    border-bottom: 1px solid var(--borde);
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#titulo {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--primario);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+#subtitulo {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    color: var(--suave);
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1.25rem);
+}
+
+.enlace {
+    color: var(--tinta);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.enlace:hover {
+    background-color: var(--papel);
+    color: var(--primario);
+}
+
+.enlace:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 2px;
+}
+
+.boton-tema {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+    background-color: var(--tarjeta);
+    color: var(--tinta);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.boton-tema:hover {
+    background-color: var(--papel);
+    border-color: var(--primario);
+}
+
+.boton-tema:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 2px;
+}
+
+.bloque {
+    border-bottom: 1px solid var(--borde);
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.bloqueUno {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borde);
+    background: linear-gradient(145deg, #818cf8 0%, #c7d2fe 60%, #fbcfe8 100%);
+}
+
+#inicio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 9rem;
+}
+
+.bloque-inicio {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    max-width: 30%;
+    min-height: 380px;
+    justify-content: center;
+    text-align: left;
+    padding: 1.5rem;
+    background-color: var(--fondo-caja);
+    border-radius: 0.75rem;
+    border: 1px solid var(--borde);
+}
+
+.parrafo__inicio {
+    font-size: 1.1rem;
+}
+
+.columna-botones {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    gap: 1rem;
+}
+
+.caja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    width: 32rem;
+    margin-left: -1.5rem;
+    background-color: var(--tarjeta);
+    border: 2px dashed var(--primario);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.destacada {
+    outline: 3px solid orange;
+    transform: scale(1.02);
+}
+
+.ocultar {
+    display: none;
+}
+
+.color {
+    background: linear-gradient(135deg, #aebbf2 0%, #8b5cf6 55%, #6e2cb1 100%);
+}
+
+.color, .color * {
+    color: white !important;
+}
+
+.panel-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+}
+
+.panel-botones button {
+    flex: 1 1 auto;
+    padding: 0.65rem 1.25rem;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: var(--primario);
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.panel-botones button:hover {
+    background-color: #1d4ed8;
+}
+
+.panel-botones button:active {
+    transform: scale(0.97);
+}
+
+.caja p {
+    color: var(--suave);
+    font-weight: 600;
+}
+
+.img-promocion {
+    width: 110%;
+    max-width: 225px;
+    border-radius: 0.5rem;
+}
+
+.enlace__externo {
+    align-self: flex-end;
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background-color: var(--primario);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.enlace__externo:hover {
+    background-color: #1d4ed8;
+}
+
+.enlace__externo:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 2px;
+}
+
+/* ===========================================================
+ 4. CONTENIDO Y SECCIONES
+ =========================================================== */
+.bloque h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--primario);
+    border-left: 4px solid var(--primario);
+    padding-left: 0.75rem;
+}
+
+.bloque h3 {
+    font-size: 1.15rem;
+    color: var(--secundario);
+    margin-top: 0.5rem;
+}
+
+.lista {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.lista li {
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 2rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.lista li .img-iphone {
+    width: 90px;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.contador {
+    color: var(--suave);
+    font-size: 0.9rem;
+}
+
+.control-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.control-lista input {
+    flex: 1 1 200px;
+    padding: 0.6rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+    background-color: var(--tarjeta);
+    color: var(--tinta);
+}
+
+.control-lista input:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 1px;
+}
+
+.control-lista button,
+.formulario button {
+    padding: 0.6rem 1.1rem;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: var(--primario);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.control-lista button:hover,
+.formulario button:hover {
+    background-color: #1d4ed8;
+}
+
+.control-lista button:active,
+.formulario button:active {
+    transform: scale(0.97);
+}
+
+.tabla-productos {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: var(--tarjeta);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-productos th {
+    background-color: var(--primario);
+    color: #ffffff;
+    text-align: left;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+}
+
+.tabla-productos td {
+    padding: 0.7rem 1rem;
+    border-top: 1px solid var(--borde);
+}
+
+.tabla-productos tbody tr:hover {
+    background-color: var(--papel);
+}
+
+/* ===========================================================
+ 5. FORMULARIO
+ =========================================================== */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 560px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campo-grupo label {
+    font-weight: 600;
+}
+
+.campo-grupo input,
+.campo-grupo textarea {
+    padding: 0.6rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+    background-color: var(--tarjeta);
+    color: var(--tinta);
+    resize: vertical;
+}
+
+.campo-grupo input:focus,
+.campo-grupo textarea:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 1px;
+}
+
+.contador-letras {
+    font-size: 0.85rem;
+    color: var(--suave);
+}
+
+.aviso {
+    font-weight: 600;
+}
+
+/* ===========================================================
+ 6. PIE DE PÁGINA
+ =========================================================== */
+.pie {
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+    color: var(--suave);
+    border-top: 1px solid var(--borde);
+    font-size: 0.9rem;
+}
+
+/* ===========================================================
+ MEDIA QUERY
+ =========================================================== */
+@media (max-width: 360px) {
+    .cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+    }
+}
