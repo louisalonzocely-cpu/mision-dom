@@ -21,11 +21,22 @@
         </div>
         <div class="right">
             <nav class="menu">
-                <a href="#inicio" class="enlace">Inicio</a>
+                <a href="#inicio" class="enlace">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    Inicio
+                </a>
                 <a href="#coleccion" class="enlace">Catálogo</a>
                 <a href="#contacto" class="enlace">Contacto</a>
             </nav>
-            <button id="btnTema" class="boton-tema">Modo oscuro</button>
+            <button id="btnTema" class="boton-tema">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                </svg>
+                Modo oscuro
+            </button>
         </div>
     </header>
 
@@ -75,64 +86,101 @@
                 <li><img src="motoEdge70.webp" alt="Moto Edge 70" class="img-iphone">Motorola Edge 70 Pro</li>
             </ul>
 
-            <div class="control-lista">
-                <input type="text" id="campoProyecto" placeholder="Ej: iPad Air M2">
-                <button id="btnAgregar">Agregar Producto</button>
-                <button id="btnQuitar">Quitar el último</button>
-                <button id="btnVaciar">Vaciar Catálogo</button>
-            </div>
-
             <h3>Lista de Precios y Equipos</h3>
             <p id="contadorDos" class="contador"></p>
-            <table id="tabla" class="tabla-productos">
-                <thead>
-                    <tr>
-                        <th>Modelo</th>
-                        <th>Gama</th>
-                        <th>Precio</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>iPhone 18 Pro +</td>
-                        <td>Alta</td>
-                        <td>$ 6.000.000</td>
-                        <td>Disponible</td>
-                    </tr>
-                    <tr>
-                        <td>Samsung A55</td>
-                        <td>Media</td>
-                        <td>$ 1.400.000</td>
-                        <td>Disponible</td>
-                    </tr>
-                    <tr>
-                        <td>Motorola Edge 50</td>
-                        <td>Media-Alta</td>
-                        <td>$ 2.300.000</td>
-                        <td>Agotado</td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <div class="panel-tabla">
+                <form id="formularioProductos" class="formulario formulario-productos">
+                    <div class="campo-grupo">
+                        <label for="campoModelo">Modelo:</label>
+                        <input type="text" id="campoModelo" name="modelo" placeholder="Ej: iPad Air M2" maxlength="60" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="campoGama">Gama:</label>
+                        <select id="campoGama" name="gama" required>
+                            <option value="">Seleccionar gama</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Media-Alta">Media-Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="campoPrecio">Precio:</label>
+                        <input type="number" id="campoPrecio" name="precio" placeholder="Ej: 2500000" min="0" step="1000" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="campoEstado">Estado:</label>
+                        <select id="campoEstado" name="estado" required>
+                            <option value="">Seleccionar estado</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="Agotado">Agotado</option>
+                        </select>
+                    </div>
+
+                    <div class="acciones-tabla">
+                        <button type="submit" id="btnAgregar">Agregar Producto</button>
+                        <button type="button" id="btnQuitar" class="btn-secundario">Quitar el último</button>
+                        <button type="button" id="btnVaciar" class="btn-peligro">Vaciar Catálogo</button>
+                    </div>
+                    <p id="avisoTabla" class="aviso" role="status" aria-live="polite"></p>
+                </form>
+
+                <table id="tabla" class="tabla-productos">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Gama</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>iPhone 18 Pro +</td>
+                            <td>Alta</td>
+                            <td>$ 6.000.000</td>
+                            <td>Disponible</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung A55</td>
+                            <td>Media</td>
+                            <td>$ 1.400.000</td>
+                            <td>Disponible</td>
+                        </tr>
+                        <tr>
+                            <td>Motorola Edge 50</td>
+                            <td>Media-Alta</td>
+                            <td>$ 2.300.000</td>
+                            <td>Agotado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
    
         <section id="contacto" class="bloque">
             <h2>Contáctanos / Solicita Asesoría</h2>
-            <form id="formulario" class="formulario">
-                <div class="campo-grupo">
-                    <label for="campoNombre">Nombre completo:</label>
-                    <input type="text" id="campoNombre" name="campoNombre">
-                </div>
+            <div class="contacto-contenido">
+                <form id="formulario" class="formulario">
+                    <div class="campo-grupo">
+                        <label for="campoNombre">Nombre completo:</label>
+                        <input type="text" id="campoNombre" name="campoNombre">
+                    </div>
 
-                <div class="campo-grupo">
-                    <label for="campoMensaje">Mensaje o dispositivo de interés:</label>
-                    <textarea id="campoMensaje" name="campoMensaje" rows="4"></textarea>
-                    <p id="contadorLetras" class="contador-letras"></p>
-                </div>
+                    <div class="campo-grupo">
+                        <label for="campoMensaje">Mensaje o dispositivo de interés:</label>
+                        <textarea id="campoMensaje" name="campoMensaje" rows="4"></textarea>
+                        <p id="contadorLetras" class="contador-letras"></p>
+                    </div>
 
-                <button type="submit" id="btnEnviar">Enviar Solicitud</button>
-                <p id="avisoForm" class="aviso"></p>
-            </form>
+                    <button type="submit" id="btnEnviar">Enviar Solicitud</button>
+                    <p id="avisoForm" class="aviso"></p>
+                </form>
+                <img src="business-contact-us-5cdrrb4lyumtoy5v.webp" alt="Persona contactando a MobilStore" class="img-contacto">
+            </div>
         </section>
     </main>
 
