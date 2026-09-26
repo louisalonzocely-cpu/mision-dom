@@ -8,6 +8,13 @@ const caja = document.getElementById("caja");
 const btnOcultar = document.getElementById("btnOcultar");
 const promocion = document.getElementById("promocion");
 const btnColor = document.getElementById("btnColor");
+const campoMensaje = document.getElementById("campoMensaje");
+const contadorLetras = document.getElementById("contadorLetras");
+const formulario = document.getElementById("formulario");
+const campoNombre = document.getElementById("campoNombre");
+const avisoForm = document.getElementById("avisoForm");
+const btnTema = document.getElementById("btnTema");
+const textoTema = document.getElementById("textoTema");
 // Inicializa el botón que oculta la promoción.
 btnOcultar.textContent = "Ocultar";
 
@@ -110,9 +117,80 @@ const formatoPrecio = new Intl.NumberFormat("es-CO", {
 // Aplica colores alternativos a las filas de la tabla.
 function pintarFilasTabla() {
     cuerpoTabla.querySelectorAll("tr").forEach((fila, indice) => {
-        fila.style.backgroundColor = indice % 2 === 1 ? "#dbdbdb" : "";
+        fila.style.backgroundColor = indice % 2 === 1 ? "var(--borde)" : "";
     });
 }
+
+// Misión 12: marca la fila seleccionada y desmarca las demás.
+function seleccionarFila(evento) {
+    // Recorre todas las filas y quita la clase de la selección anterior.
+    cuerpoTabla.querySelectorAll("tr").forEach((fila) => {
+        fila.classList.remove("fila-marcada");
+    });
+
+    // Agrega la clase únicamente a la fila que recibió el clic.
+    evento.currentTarget.classList.add("fila-marcada");
+}
+
+// Conecta el clic de una fila con la función que la selecciona.
+function activarFila(fila) {
+    fila.addEventListener("click", seleccionarFila);
+}
+
+// Recorre las filas existentes y les agrega su listener de selección.
+function activarFilasTabla() {
+    cuerpoTabla.querySelectorAll("tr").forEach((fila) => {
+        activarFila(fila);
+    });
+}
+
+//Mision 13
+function actualizarContadorLetras() {
+    const cantidad = campoMensaje.value.length;
+    contadorLetras.textContent = `${cantidad} caracteres`;
+}
+
+campoMensaje.addEventListener("input", actualizarContadorLetras);
+actualizarContador();
+
+//Mision 14
+function validarFormulario(evento) {
+    evento.preventDefault();
+    const nombre = campoNombre.value.trim();
+    const mensaje = campoMensaje.value.trim();
+
+    avisoForm.classList.remove("error", "ok");
+
+    if (!nombre) {
+        avisoForm.textContent = "Escribe tu nombre.";
+        avisoForm.classList.add("error");
+        campoNombre.focus();
+        return;
+    }
+
+    if (mensaje.length < 10) {
+        avisoForm.textContent = "El mensaje debe tener al menos 10 caractares.";
+        avisoForm.classList.add("error");
+        campoMensaje.focus();
+        return;
+    }
+
+    avisoForm.textContent = `¡Gracias, ${nombre}! Recibimos tu solicitud.`;
+    avisoForm.classList.add("ok");
+    formulario.reset();
+    actualizarContadorLetras();
+}
+
+formulario.addEventListener("submit", validarFormulario);
+
+//Mision 15
+function cambiarTema() {
+    const oscuro = document.body.classList.toggle("tema-oscuro");
+    textoTema.textContent = oscuro ? "Modo claro" : "Modo oscuro";
+    btnTema.setAttribute("aria-pressed", oscuro);
+}
+
+btnTema.addEventListener("click", cambiarTema);
 
 // Muestra un mensaje de éxito o error junto a la tabla.
 function mostrarAvisoTabla(mensaje, tipo) {
@@ -147,6 +225,7 @@ function agregarProducto(evento) {
     });
 
     cuerpoTabla.appendChild(fila);
+    activarFila(fila);
     formularioProductos.reset();
     actualizarContadorDos();
     pintarFilasTabla();
@@ -191,3 +270,5 @@ campoModelo.addEventListener("input", () => campoModelo.setCustomValidity(""));
 
 // Aplica el color inicial de las filas existentes.
 pintarFilasTabla();
+// Activa el clic de las filas existentes.
+activarFilasTabla();

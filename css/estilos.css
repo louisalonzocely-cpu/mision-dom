@@ -417,6 +417,11 @@ body {
     background-color: var(--papel);
 }
 
+.tabla-productos tbody tr.fila-marcada {
+    background-color: #fef3c7 !important;
+    box-shadow: inset 4px 0 0 var(--primario);
+}
+
 /*5. FORMULARIO*/
 .formulario {
     display: flex;
@@ -430,7 +435,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 560px) minmax(220px, 1fr);
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
     gap: 2rem;
     align-items: center;
 }
@@ -540,15 +545,36 @@ body {
     font-size: 0.9rem;
 }
 
+.aviso.ok {
+    color: var(--exito);
+}
+
+.cabecera {
+    background-color: var(--tarjeta);
+}
+
+body.tema-oscuro .bloqueUno {
+    background: linear-gradient(145deg, #1e1b4b, #312e81, #4c1d95);
+}
+
+body.tema-oscuro .bloque-inicio {
+    background: var(--fondo-caja);
+}
+
+body.tema-oscuro {
+    --papel: #111827;
+    --tarjeta: #1f2937;
+    --tinta: #f3f4f6;
+    --suave: #9ca3af;
+    --borde: #374151;
+    --secundario: #d1d5db;
+    --fondo-caja: #312e81;
+}
+
 /*MEDIA QUERY*/
 @media (max-width: 700px) {
     .contacto-contenido {
-        grid-template-columns: 1fr;
-    }
-
-    .img-contacto {
-        justify-self: center;
-        max-width: 500px;
+        gap: 1rem;
     }
 }
 
